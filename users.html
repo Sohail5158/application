@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<style>
+    body{
+        background-color: rgb(167, 224, 82);
+        text-align: center;
+        
+    }
+    #user{
+        background-color: white;
+        width: 100%;
+        margin-top: 100px;
+    }
+    #profile{
+        width: 30%;
+        float: left;
+    }
+    #details{
+        width: 70%;
+        float: right;
+    }
+    #details>h1{
+        font-size: 50px;
+    }
+    #details>p{
+        font-size: 20px;
+    }
+    #profile{
+        margin-top: 120px;
+    }
+    #options {
+    color: #fff;
+    padding: 10px;
+  }
+
+  #options span {
+    padding-left: 50px;
+    float: right;
+    font-size: 25px;
+  }
+
+  #options a {
+    color: black;
+    text-decoration: none;
+   
+  }
+</style>
+<body>
+    <div id="options">
+        <span><a href="contact.html">Contact</a></span>
+        <span><a href="products.html">Products</a></span>
+        <span><a href="users.html">Users</a></span>
+        <span><a href="index.html">Home</a></span>
+    
+      </div>
+    <div id="user">
+        <div id="profile">
+            <img id="pic">
+        </div>
+        <div id="details">
+            <h1 id="name"></h1>
+            <p id="DOB"></p>
+            <p id="mail"></p>
+            <p id="tel"></p>
+            <p id="country"></p>
+        </div>
+
+    </div>
+    
+</body>
+<script>
+    fetch('https://randomuser.me/api/?results=1')
+            .then(response => response.json())
+            .then(data => {document.getElementById("name").innerHTML=data.results[0].name.title+ data.results[0].name.first+data.results[0].name.last,
+            document.getElementById("DOB").innerHTML=data.results[0].dob.date+data.results[0].dob.age,
+            document.getElementById("mail").innerHTML=data.results[0].email,
+            document.getElementById("tel").innerHTML=data.results[0].cell,
+            document.getElementById("country").innerHTML=data.results[0].location.country,
+            document.getElementById("pic").setAttribute("src",data.results[0].picture.large)
+
+            
+            })
+</script>
+</html>

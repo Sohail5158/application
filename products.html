@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        width: 100%;
+    }
+
+    #menu {
+        
+        width: 30%;
+        height: 900px;
+        float: left;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+    }
+
+    #menu>p {
+        padding-top: 70px;
+        font-size: 30px;
+    }
+
+    #description {
+        width: 70%;
+        float: right;
+    }
+
+    #desx {
+        width: 100%;
+
+    }
+
+    #ldes {
+        width: 60%;
+        float: left;
+        margin-top: 120px;
+    }
+
+    #rdes {
+        width: 40%;
+        float: right;
+        /* margin-top: 40px; */
+    }
+
+    #pic {
+        width: 400px;
+    }
+
+    #cat {
+        font-size: 35px;
+        color: lime;
+        /* font-style: bold; */
+    }
+
+    #options {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #options span {
+        padding-left: 50px;
+        float: right;
+        font-size: 25px;
+    }
+
+    #options a {
+        color:black;
+        text-decoration: none;
+    }
+</style>
+
+<body>
+    <div id="options">
+        <span><a href="contact.html">Contact</a></span>
+        <span><a href="products.html">Products</a></span>
+        <span><a href="users.html">Users</a></span>
+        <span><a href="index.html">Home</a></span>
+
+    </div>
+        <div id="menu">
+            <p id="Electronics">Electronics</p>
+            <p id="Jewellery">Jewellery</p>
+            <p id="men">Mens Wearing</p>
+            <p id="women">Womens Wearing</p>
+        </div>
+        <div id="description">
+            <div id="desx">
+                <div id="ldes">
+                    <img id="pic">
+                </div>
+                <div id="rdes">
+
+                    <p id="cat"></p>
+                    <p id="title"></p>
+                    <p id="price"></p>
+                    <p id="des"></p>
+
+                    <p id="rating"></p>
+
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+    let elec = document.getElementById("Electronics");
+    let jewel = document.getElementById("Jewellery");
+    let men = document.getElementById("men");
+    let women = document.getElementById("women");
+
+    elec.addEventListener("click", function () {
+        fetch('https://fakestoreapi.com/products/14')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("des").innerHTML = "<h2>Description:</h2>" + data.description,
+                    document.getElementById("cat").innerHTML = data.category,
+                    document.getElementById("pic").setAttribute("src", data.image),
+                    document.getElementById("price").innerHTML = "<h2>Price:</h2>" + data.price,
+                    document.getElementById("rating").innerHTML = "<h2>Rating:</h2>" + data.rating.rate,
+
+                    document.getElementById("title").innerHTML = "<h2>Title</h2>" + data.title,
+                    console.log(data)
+            });
+
+
+    })
+    jewel.addEventListener("click", function () {
+        fetch('https://fakestoreapi.com/products/5')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("des").innerHTML = "<h2>Description:</h2>" + data.description,
+                    document.getElementById("cat").innerHTML = data.category,
+                    document.getElementById("pic").setAttribute("src", data.image),
+                    document.getElementById("price").innerHTML = "<h2>Price:</h2>" + data.price,
+                    document.getElementById("rating").innerHTML = "<h2>Rating:</h2>" + data.rating.rate,
+
+                    document.getElementById("title").innerHTML = "<h2>Title</h2>" + data.title,
+                    console.log(data)
+            });
+
+
+    })
+    men.addEventListener("click", function () {
+        fetch('https://fakestoreapi.com/products/1')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("des").innerHTML = "<h2>Description:</h2>" + data.description,
+                    document.getElementById("cat").innerHTML = data.category,
+                    document.getElementById("pic").setAttribute("src", data.image),
+                    document.getElementById("price").innerHTML = "<h2>Price:</h2>" + data.price,
+                    document.getElementById("rating").innerHTML = "<h2>Rating:</h2>" + data.rating.rate,
+
+                    document.getElementById("title").innerHTML = "<h2>Title</h2>" + data.title,
+                    console.log(data)
+            });
+
+
+    })
+    women.addEventListener("click", function () {
+        fetch('https://fakestoreapi.com/products/16')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("des").innerHTML = "<h2>Description:</h2>" + data.description,
+                    document.getElementById("cat").innerHTML = data.category,
+                    document.getElementById("pic").setAttribute("src", data.image),
+                    document.getElementById("price").innerHTML = "<h2>Price:</h2>" + data.price,
+                    document.getElementById("rating").innerHTML = "<h2>Rating:</h2>" + data.rating.rate,
+
+                    document.getElementById("title").innerHTML = "<h2>Title</h2>" + data.title,
+                    console.log(data)
+            });
+
+
+    })
+
+
+
+</script>
+
+</html>
